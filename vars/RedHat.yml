@@ -3,6 +3,13 @@ openldap_server_pkgs:
   - openldap-clients
   - libselinux-python
   - openssl
+  - httpd
+  - php
+  - php-bcmath
+  - php-gd
+  - php-mbstring
+  - php-xml
+  - php-ldap
 
 openldap_server_app_path: "/etc/openldap/"
 openldap_server_user: ldap

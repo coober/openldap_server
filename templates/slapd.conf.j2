@@ -5,15 +5,16 @@ include         /etc/openldap/schema/nis.schema
 pidfile         /var/run/openldap/slapd.pid
 argsfile        /var/run/openldap/slapd.args
 modulepath      /usr/lib64/openldap
+disallow bind_anon
 
 access to *
                 by self write
-                by dn.base="cn=Manager,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}" write
+                by dn.base="cn=admaster,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}" write
                 by * read
 access to attrs=userPassword
                 by self write
                 by anonymous auth
-                by dn.base="cn=Manager,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}" write
+                by dn.base="cn=admaster,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}" write
                 by * none
 access to attrs=shadowLastChange
                 by self write
@@ -21,10 +22,10 @@ access to attrs=shadowLastChange
 
 database        bdb
 suffix          "dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}"
-rootdn          "cn=Manager,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}"
+rootdn          "cn=admaster,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}"
 rootpw          {{ root_password.stdout }}
 #This directory has to be created and would contain the ldap database.
-directory       /var/lib/ldap/{{ openldap_server_domain_name }}/
+directory       /data/openldap-data/{{ openldap_server_domain_name }}/
 index objectClass                       eq,pres
 index ou,cn,mail,surname,givenname      eq,pres,sub
 index uidNumber,gidNumber,loginShell    eq,pres

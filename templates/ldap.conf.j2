@@ -8,7 +8,7 @@
 BASE    dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
 {% if openldap_server_enable_ssl %}
 URI     ldaps://localhost
-TLS_REQCERT never
+TLS_REQCERT allow
 {% endif %}
 {% if not openldap_server_enable_ssl %}
 URI     ldap://localhost
