@@ -1,4 +1,64 @@
-dn: dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
+dn: dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+dc: ldap
+objectClass: top
 objectClass: domain
-dc: {{ openldap_server_domain_name.split('.')[0] }}
 
+dn: ou=Hosts,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Hosts
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Rpc,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Rpc
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Services,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Services
+objectClass: top
+objectClass: organizationalUnit
+
+dn: nisMapName=netgroup.byuser,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+nismapname: netgroup.byuser
+objectClass: top
+objectClass: nisMap
+
+dn: ou=Mounts,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Mounts
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Networks,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Networks
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=People,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Group,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Netgroup,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Netgroup
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Protocols,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Protocols
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Aliases,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+ou: Aliases
+objectClass: top
+objectClass: organizationalUnit
+
+dn: nisMapName=netgroup.byhost,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }},dc={{ openldap_server_domain_name.split('.')[2] }}
+nismapname: netgroup.byhost
+objectClass: top
+objectClass: nisMap
